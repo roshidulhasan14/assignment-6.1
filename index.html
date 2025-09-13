@@ -50,7 +50,7 @@
 
             <!-- Sidebar -->
             <aside class="w-1/5">
-                <h2 class="font-bold text-lg mb-4">Categories</h2>
+                <h2 id="Category" class="font-bold text-lg mb-4">Categories</h2>
                 <ul class="space-y-2">
                     <li><a href="#" class="block bg-green-600 text-white px-4 py-2 rounded">All Trees</a></li>
                     <li><a href="#" class="block hover:bg-green-100 px-4 py-2 rounded">Fruit Trees</a></li>
@@ -66,9 +66,11 @@
                 </ul>
             </aside>
 
+        
+
             <div class="w-3/5">
                 <h1 class="text-2xl font-bold text-center mb-6">Choose Your Trees</h1>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div id="plants" class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
                     <div class="bg-white p-4 rounded-lg shadow">           
                         <img src="./assets/mango.jpg" alt="">
@@ -152,7 +154,7 @@
                             <span class="font-bold"><i class="fa-solid fa-bangladeshi-taka-sign"></i>600</span>
                             
                         </div>
-                        <button class="bg-green-600 text-white px-4 py-2 rounded-full w-[200px] mt-4 hover:bg-green-700">Add to Cart</button>
+                        <button  class="bg-green-600 text-white px-4 py-2 rounded-full w-[200px] mt-4 hover:bg-green-700">Add to Cart</button>
                     </div>
                      <div class="bg-white p-4 rounded-lg shadow">           
                         <img src="./assets/shade.jpg" alt="">
@@ -176,10 +178,11 @@
                             <span class="font-bold"><i class="fa-solid fa-bangladeshi-taka-sign"></i>600</span>
                             
                         </div>
-                        <button class="bg-green-600 text-white px-4 py-2 rounded-full w-[200px] mt-4 hover:bg-green-700">Add to Cart</button>
+                        <button  class="bg-green-600 text-white px-4 py-2 rounded-full w-[200px] mt-4 hover:bg-green-700">Add to Cart</button>
                     </div>
                 </div>
             </div>
+            
 
 
         
@@ -192,6 +195,15 @@
                     <span class="font-bold" id="cart-total"><i class="fa-solid fa-bangladeshi-taka-sign"></i>0</span>
                 </div>
             </aside>
+            
+
+            <!-- Modal -->
+            <div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+                <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full relative">
+                <button onclick="closeModal()" class="absolute top-2 right-2 text-gray-500">✖</button>
+                <div id="modalContent"></div>
+                </div>
+            </div>
         </section>
 
         <!--campaign ection-->
@@ -243,20 +255,30 @@
        </section>
 
             <!--form section-->
-       <section class="text-center bg-green-700 py-15 justify-center items-center">
-           <div class="justify-center items-center">
-                 <h1 class="text-white font-bold text-2xl">Plant a Tree Today</h1>
-                <form class="bg-green-600 p-5 w-[350px] ">
-                    <input class="bg-white rounded-lg w-[300px] py-2" type="text" placeholder="Your Name"> <br>
-                    <input class="bg-white rounded-lg w-[300px] m-2 py-2" type="text" placeholder="Your Email Address"> <br>
-                    <input class="bg-white rounded-lg w-[300px] py-2" type="text" placeholder="Number of Trees"> <br>
-                    <button class="bg-yellow-400 text-black px-4 py-2 rounded-full font-semibold hover:bg-yellow-500 text-green-500 w-[300px] mt-3">Donate Now</button>
+       <section class="bg-green-700 flex items-center justify-center min-h-screen">
+           <div>
+                <h1 class="text-white font-bold text-2xl mb-5 text-center">Plant a Tree Today</h1>
+                <form id="donationForm" class="bg-green-600 p-5 w-[350px] rounded-lg">
+                    <input class="bg-white rounded border-none w-[300px] p-2" type="name" placeholder="Your Name"> <br>
+                    <input class="bg-white rounded border-none w-[300px] mt-2 mb-2 p-2" type="email" placeholder="Your Email Address"> <br>
+                    <input class="bg-white rounded border-none w-[300px] p-2" type="number" placeholder="Number of Trees"> <br>
+                    <button class="bg-yellow-400 px-4 py-2 rounded-full font-semibold hover:bg-yellow-500 text-green-500 w-[300px] mt-3">Donate Now</button>
                 </form>
            </div>
         </section>
-    
+         
 
     </main>
+
+    <footer class="text-center bg-green-900 text-white p-5">
+        © 2025 Green Earth. All Rights Reserved.
+    </footer>
+
+
+    
+
+
+    <script src="./script/index.js"></script>
     
 </body>
 </html>
