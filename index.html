@@ -1,284 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GREEN EARTH</title>
-        <!--tailwind css-->
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!--icon-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <!--font family-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GREEN EARTH</title>
+  <!-- Tailwind + DaisyUI -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5/dist/full.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
-<body>
+<body class="font-sans">
 
-        <!--navbar-->
-    <nav class="flex justify-between items-center px-8 py-4 bg-green-700 text-white">
-        
-        <h1 class="text-lg font-bold"><i class="fa-solid fa-seedling mr-2"></i>Green Earth</h1>
-        <ul class="hidden md:flex space-x-6">
-            <li><a href="" class="hover:text-yellow-300">About</a></li>
-            <li><a href="" class="hover:text-yellow-300">Gallery</a></li>
-            <li><a href="" class="hover:text-yellow-300">Plant a Tree</a></li>
-        </ul>
-        <button id="" class="bg-yellow-400 text-black px-4 py-2 rounded-full font-semibold hover:bg-yellow-500">Plant a Tree</button>
-    </nav>
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center px-8 py-4 bg-green-700 text-white">
+    <h1 class="text-lg font-bold"><i class="fa-solid fa-seedling mr-2"></i>Green Earth</h1>
+    <ul class="hidden md:flex space-x-6">
+      <li><a href="#" class="hover:text-yellow-300">About</a></li>
+      <li><a href="#" class="hover:text-yellow-300">Gallery</a></li>
+      <li><a href="#" class="hover:text-yellow-300">Plant a Tree</a></li>
+    </ul>
+    <button class="bg-yellow-400 text-black px-4 py-2 rounded-full font-semibold hover:bg-yellow-500">
+      Plant a Tree
+    </button>
+  </nav>
 
-    <main>
-         <!--hero section-->
+  <main>
+    <!-- Hero Section -->
+    <section class="relative bg-green-100 py-20 text-center overflow-hidden">
+      <img src="./assets/hero-leaf1.png" alt="" class="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 w-40 md:w-60">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Plant a Tree, Grow a Future</h2>
+        <p class="text-gray-600 max-w-xl mx-auto mb-6">
+          Join our mission to plant 1 million trees and make the Earth greener for future generations.
+        </p>
+        <button class="bg-yellow-400 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-500">Get Involved</button>
+      </div>
+      <img src="./assets/hero-leaf2.png" alt="" class="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-40 md:w-60">
+    </section>
 
-        <section class="relative bg-green-100 py-20 text-center overflow-hidden">
-            <img src="./assets/hero-leaf1.png" alt="" class="hidden md:block bottom-0 absolute left-0 top-1/2 transform -translate-y-1/2 w-40 md:w-60">
+    <!-- Product Section -->
+    <section class="flex p-6 gap-6 bg-green-50">
+      <!-- Sidebar -->
+      <aside class="w-1/5">
+        <h2 id="Category" class="font-bold text-lg mb-4">Categories</h2>
+        <ul class="space-y-2" id="category-list"></ul>
+      </aside>
 
-            <div class="">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-                Plant a Tree, Grow a Future
-                </h2>
-                <p class="text-gray-600 max-w-xl mx-auto mb-6">
-                Join our mission to plant 1 million trees and make the Earth greener for future generations.
-                </p>
-                <button class="bg-yellow-400 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-500">Get Involved</button>
-            </div>
+      <!-- Plants -->
+      <div class="w-3/5">
+        <h1 class="text-2xl font-bold text-center mb-6">Choose Your Trees</h1>
+        <div id="plants" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+      </div>
 
-            <img src="./assets/hero-leaf2.png" alt="" class="hidden md:block bottom-0 absolute right-0 top-1/2 transform -translate-y-1/2 w-40 md:w-60">
-        </section>
+      <!-- Cart -->
+      <aside class="w-1/5 bg-white p-4 rounded-lg shadow">
+        <h2 class="font-bold text-lg mb-4">Your Cart</h2>
+        <ul id="cart-items" class="space-y-2"></ul>
+        <div class="mt-4 border-t pt-2 flex justify-between">
+          <span class="font-bold">Total:</span>
+          <span class="font-bold" id="cart-total"><i class="fa-solid fa-bangladeshi-taka-sign"></i>0</span>
+        </div>
+      </aside>
+    </section>
 
-         <!--products section-->
-        <section class="flex p-6 gap-6 bg-green-50">
+    <!-- Modal -->
+    <div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+      <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full relative">
+        <button onclick="closeModal()" class="absolute top-2 right-2 text-gray-500">✖</button>
+        <div id="modalContent"></div>
+      </div>
+    </div>
 
-            <!-- Sidebar -->
-            <aside class="w-1/5">
-                <h2 id="Category" class="font-bold text-lg mb-4">Categories</h2>
-                <ul class="space-y-2">
-                    <li><a href="#" class="block bg-green-600 text-white px-4 py-2 rounded">All Trees</a></li>
-                    <li><a href="#" class="block hover:bg-green-100 px-4 py-2 rounded">Fruit Trees</a></li>
-                    <li><a href="#" class="block hover:bg-green-100 px-4 py-2 rounded">Flowering Trees</a></li>
-                    <li><a href="#" class="block hover:bg-green-100 px-4 py-2 rounded">Shade Trees</a></li>
-                    <li><a href="#" class="block hover:bg-green-100 px-4 py-2 rounded">Medicinal Trees</a></li>
-                    <li><a href="#" class="block hover:bg-green-100 px-4 py-2 rounded">Timber Trees</a></li>
-                    <li><a href="#" class="block hover:bg-green-100 px-4 py-2 rounded">Evergreen Trees</a></li>
-                    <li><a href="#" class="block hover:bg-green-100 px-4 py-2 rounded">Ornamental Plants</a></li>
-                    <li><a href="#" class="block hover:bg-green-100 px-4 py-2 rounded">Bamboo</a></li>
-                    <li><a href="#" class="block hover:bg-green-100 px-4 py-2 rounded">Climbers</a></li>
-                    <li><a href="#" class="block hover:bg-green-100 px-4 py-2 rounded">Aquatic Plants</a></li>
-                </ul>
-            </aside>
+    <!-- Campaign -->
+    <section class="p-5">
+      <h2 class="text-2xl font-bold text-center mt-5">About the Campaign</h2>
+      <div class="w-[1090px] h-[600px] grid grid-cols-1 md:grid-cols-2 items-center gap-10 max-w-4xl mx-auto">
+        <img src="./assets/about.png" alt="">
+        <div>
+          <p class="text-gray-700 mb-4 text-sm">
+            Green Earth is a global tree plantation initiative dedicated to fighting climate change.
+          </p>
+          <ul class="list-disc list-inside text-gray-700 space-y-2">
+            <li>Restoration of natural habitats</li>
+            <li>Improvement of air quality</li>
+            <li>Support for local communities</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-        
+    <!-- Donation Form -->
+    <section class="bg-green-700 flex items-center justify-center min-h-screen">
+      <div>
+        <h1 class="text-white font-bold text-2xl mb-5 text-center">Plant a Tree Today</h1>
+        <form id="donationForm" class="bg-green-600 p-5 w-[350px] rounded-lg">
+          <input class="bg-white rounded border-none w-[300px] p-2" type="text" placeholder="Your Name" required /><br>
+          <input class="bg-white rounded border-none w-[300px] mt-2 mb-2 p-2" type="email" placeholder="Your Email Address" required /><br>
+          <input class="bg-white rounded border-none w-[300px] p-2" type="number" placeholder="Number of Trees" required /><br>
+          <button class="bg-yellow-400 px-4 py-2 rounded-full font-semibold hover:bg-yellow-500 text-green-900 w-[300px] mt-3">
+            Donate Now
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
 
-            <div class="w-3/5">
-                <h1 class="text-2xl font-bold text-center mb-6">Choose Your Trees</h1>
-                <div id="plants" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+  <footer class="text-center bg-green-900 text-white p-5">
+    © 2025 Green Earth. All Rights Reserved.
+  </footer>
 
-                    <div class="bg-white p-4 rounded-lg shadow">           
-                        <img src="./assets/mango.jpg" alt="">
-                        <h2 class="font-bold">Mango Tree</h2>
-                        <p class="text-sm text-gray-600">A fast-growing tropical tree that produces delicious, juicy mangoes during summer.</p>
-                        
-                        <div class="flex justify-between items-center mt-3">                
-                            <span class="inline-block rounded mt-2 text-green-600 text-sm font-semibold bg-green-200">Fruit Tree</span>
-                            <span class="font-bold"><i class="fa-solid fa-bangladeshi-taka-sign"></i>500</span>
-                            
-                        </div>
-                        <button class="bg-green-600 text-white px-4 py-2 rounded-full w-[200px] mt-4 hover:bg-green-700">Add to Cart</button>
-                    </div>
-                    <div class="bg-white p-4 rounded-lg shadow">           
-                        <img src="./assets/mango.jpg" alt="">
-                        <h2 class="font-bold">Mango Tree</h2>
-                        <p class="text-sm text-gray-600">A fast-growing tropical tree that produces delicious, juicy mangoes during summer.</p>
-                        
-                        <div class="flex justify-between items-center mt-3">                
-                            <span class="inline-block rounded mt-2 text-green-600 text-sm font-semibold bg-green-200">Fruit Tree</span>
-                            <span class="font-bold"><i class="fa-solid fa-bangladeshi-taka-sign"></i>500</span>
-                            
-                        </div>
-                        <button class="bg-green-600 text-white px-4 py-2 rounded-full w-[200px] mt-4 hover:bg-green-700">Add to Cart</button>
-                    </div>
-                    <div class="bg-white p-4 rounded-lg shadow">           
-                        <img src="./assets/mango.jpg" alt="">
-                        <h2 class="font-bold">Mango Tree</h2>
-                        <p class="text-sm text-gray-600">A fast-growing tropical tree that produces delicious, juicy mangoes during summer.</p>
-                        
-                        <div class="flex justify-between items-center mt-3">                
-                            <span class="inline-block rounded mt-2 text-green-600 text-sm font-semibold bg-green-200">Fruit Tree</span>
-                            <span class="font-bold"><i class="fa-solid fa-bangladeshi-taka-sign"></i>500</span>
-                            
-                        </div>
-                        <button class="bg-green-600 text-white px-4 py-2 rounded-full w-[200px] mt-4 hover:bg-green-700">Add to Cart</button>
-                    </div>
-                    <div class="bg-white p-4 rounded-lg shadow">           
-                        <img src="./assets/flower.jpg" alt="">
-                        <h2 class="font-bold">Flower Tree</h2>
-                        <p class="text-sm text-gray-600">A fast-growing tropical tree that produces delicious, juicy mangoes during summer.</p>
-                        
-                        <div class="flex justify-between items-center mt-3">                
-                            <span class="inline-block rounded mt-2 text-green-600 text-sm font-semibold bg-green-200">Flower Tree</span>
-                            <span class="font-bold"><i class="fa-solid fa-bangladeshi-taka-sign"></i>500</span>
-                            
-                        </div>
-                        <button class="bg-green-600 text-white px-4 py-2 rounded-full w-[200px] mt-4 hover:bg-green-700">Add to Cart</button>
-                    </div>
-                    <div class="bg-white p-4 rounded-lg shadow">           
-                        <img src="./assets/flower.jpg" alt="">
-                        <h2 class="font-bold">Flower Tree</h2>
-                        <p class="text-sm text-gray-600">A fast-growing tropical tree that produces delicious, juicy mangoes during summer.</p>
-                        
-                        <div class="flex justify-between items-center mt-3">                
-                            <span class="inline-block rounded mt-2 text-green-600 text-sm font-semibold bg-green-200">Flower Tree</span>
-                            <span class="font-bold"><i class="fa-solid fa-bangladeshi-taka-sign"></i>500</span>
-                            
-                        </div>
-                        <button class="bg-green-600 text-white px-4 py-2 rounded-full w-[200px] mt-4 hover:bg-green-700">Add to Cart</button>
-                    </div>
-                    <div class="bg-white p-4 rounded-lg shadow">           
-                        <img src="./assets/flower.jpg" alt="">
-                        <h2 class="font-bold">Flower Tree</h2>
-                        <p class="text-sm text-gray-600">A fast-growing tropical tree that produces delicious, juicy mangoes during summer.</p>
-                        
-                        <div class="flex justify-between items-center mt-3">                
-                            <span class="inline-block rounded mt-2 text-green-600 text-sm font-semibold bg-green-200">Flower Tree</span>
-                            <span class="font-bold"><i class="fa-solid fa-bangladeshi-taka-sign"></i>500</span>
-                            
-                        </div>
-                        <button class="bg-green-600 text-white px-4 py-2 rounded-full w-[200px] mt-4 hover:bg-green-700">Add to Cart</button>
-                    </div>
-                    <div class="font-bold bg-white p-4 rounded-lg shadow">           
-                        <img src="./assets/shade.jpg" alt="">
-                        <h2 class="font-bold">Shade Tree</h2>
-                        <p class="text-sm text-gray-600">A fast-growing tropical tree that produces delicious, juicy mangoes during summer.</p>
-                        
-                        <div class="flex justify-between items-center mt-3">                
-                            <span class="inline-block rounded mt-2 text-green-600 text-sm font-semibold bg-green-200">Shade Tree</span>
-                            <span class="font-bold"><i class="fa-solid fa-bangladeshi-taka-sign"></i>600</span>
-                            
-                        </div>
-                        <button  class="bg-green-600 text-white px-4 py-2 rounded-full w-[200px] mt-4 hover:bg-green-700">Add to Cart</button>
-                    </div>
-                     <div class="bg-white p-4 rounded-lg shadow">           
-                        <img src="./assets/shade.jpg" alt="">
-                        <h2 class="font-bold">Shade Tree</h2>
-                        <p class="text-sm text-gray-600">A fast-growing tropical tree that produces delicious, juicy mangoes during summer.</p>
-                        
-                        <div class="flex justify-between items-center mt-3">                
-                            <span class="inline-block rounded mt-2 text-green-600 text-sm font-semibold bg-green-200">Shade Tree</span>
-                            <span class="font-bold"><i class="fa-solid fa-bangladeshi-taka-sign"></i>600</span>
-                            
-                        </div>
-                        <button class="bg-green-600 text-white px-4 py-2 rounded-full w-[200px] mt-4 hover:bg-green-700">Add to Cart</button>
-                    </div>
-                     <div class="bg-white p-4 rounded-lg shadow">           
-                        <img src="./assets/shade.jpg" alt="">
-                        <h2 class="font-bold">Shade Tree</h2>
-                        <p class="text-sm text-gray-600">A fast-growing tropical tree that produces delicious, juicy mangoes during summer.</p>
-                        
-                        <div class="flex justify-between items-center mt-3">                
-                            <span class="inline-block rounded mt-2 text-green-600 text-sm font-semibold bg-green-200">Shade Tree</span>
-                            <span class="font-bold"><i class="fa-solid fa-bangladeshi-taka-sign"></i>600</span>
-                            
-                        </div>
-                        <button  class="bg-green-600 text-white px-4 py-2 rounded-full w-[200px] mt-4 hover:bg-green-700">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-            
-
-
-        
-            <!-- Cart -->
-            <aside class="w-1/5 bg-white p-4 rounded-lg shadow">
-                <h2 class="font-bold text-lg mb-4">Your Cart</h2>
-                <ul id="cart-items" class="space-y-2"></ul>
-                <div class="mt-4 border-t pt-2 flex justify-between">
-                    <span class="font-bold">Total:</span>
-                    <span class="font-bold" id="cart-total"><i class="fa-solid fa-bangladeshi-taka-sign"></i>0</span>
-                </div>
-            </aside>
-            
-
-            <!-- Modal -->
-            <div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-                <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full relative">
-                <button onclick="closeModal()" class="absolute top-2 right-2 text-gray-500">✖</button>
-                <div id="modalContent"></div>
-                </div>
-            </div>
-        </section>
-
-        <!--campaign ection-->
-        <section class="p-5">
-            <h2 class="text-2xl font-bold text-center mt-5">About the Campaign</h2>
-            <div class="w-[1090px] h-[600px] grid grid-cols-1 md:grid-cols-2 items-center gap-10 max-w-4xl mx-auto">
-                <img src="./assets/about.png" alt="">
-
-                <div>
-                    
-                    <p class="text-gray-700 mb-4 text-sm">Green Earth is a global tree plantation initiative dedicated to fighting climate change. Since our start, we’ve planted over 500,000 trees worldwide. By joining our campaign, you help restore forests, create habitats for wildlife, and combat global warming.</p>
-                    <ul class="list-disc list-inside text-gray-700 space-y-2">
-                        <li>Restoration of natural habitats</li>
-                        <li>Improvement of air quality</li>
-                        <li>Support for local communities</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-            <!--impact section-->
-        <section class="bg-green-100 p-20 text-center h-[300px]">
-            <h1 class="text-2xl font-bold mb-4">Our Impact</h1>
-
-            <div class="grid-cols-3 flex gap-6 items-center">
-                <div class="bg-white py-6 w-[400px] h-[100px] text-gray-700 rounded-lg">
-                    <div >
-                        <span class="text-2xl font-bold">500K+</span>
-                        <p class="text-sm font-semibold">Trees Planted</p>
-                        
-                    </div>
-                </div>
-                <div class="bg-white py-6 w-[400px] h-[100px] text-gray-700">
-                    <div >
-                        <span class="text-2xl font-bold">120+</span>
-                        <p class="text-sm font-semibold">Communities Involved</p>
-                        
-                    </div>
-                </div>
-                <div class="bg-white py-6 w-[400px] h-[100px] text-gray-700">
-                    <div>
-                        <span class="text-2xl font-bold">30+</span>
-                        <p class="text-sm font-semibold">Countries Reached</p>
-                        
-                    </div>
-                </div>
-            </div>
-
-       </section>
-
-            <!--form section-->
-       <section class="bg-green-700 flex items-center justify-center min-h-screen">
-           <div>
-                <h1 class="text-white font-bold text-2xl mb-5 text-center">Plant a Tree Today</h1>
-                <form id="donationForm" class="bg-green-600 p-5 w-[350px] rounded-lg">
-                    <input class="bg-white rounded border-none w-[300px] p-2" type="name" placeholder="Your Name"> <br>
-                    <input class="bg-white rounded border-none w-[300px] mt-2 mb-2 p-2" type="email" placeholder="Your Email Address"> <br>
-                    <input class="bg-white rounded border-none w-[300px] p-2" type="number" placeholder="Number of Trees"> <br>
-                    <button class="bg-yellow-400 px-4 py-2 rounded-full font-semibold hover:bg-yellow-500 text-green-500 w-[300px] mt-3">Donate Now</button>
-                </form>
-           </div>
-        </section>
-         
-
-    </main>
-
-    <footer class="text-center bg-green-900 text-white p-5">
-        © 2025 Green Earth. All Rights Reserved.
-    </footer>
-
-
-    
-
-
-    <script src="./script/index.js"></script>
-    
+  <script src="./script/index.js"></script>
 </body>
 </html>
